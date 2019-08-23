@@ -42,7 +42,7 @@ def update_task(task_id):
         {
         'task_name': request.form.get('task_name'),
         'category_name': request.form.get('category_name'),
-        'task.descripton': request.form.get('task_description'),
+        'task_description': request.form.get('task_description'),
         'due_date': request.form.get('due_date'),
         'is_urgent': request.form.get('is_urgent')
         }
