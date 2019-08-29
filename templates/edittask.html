@@ -62,21 +62,16 @@
     </form>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
-
 <script type="text/javascript">
-    /*$(document).ready(function() {
-            due_date = Date.parse('{{task.due_date}}');
-            $('#due_date').pickadate('picker').set('select', due_date, { format: 'dd/mm/yyyy' }).trigger('change');
-        });*/
     document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.datepicker');
-    var options = {};
-    var instances = M.Datepicker.init(elems, options);
-    var instance = M.Datepicker.getInstance('#due_date');
-    instance.setDate(new Date());
-  });
+        var due_date = '{{task.due_date}}';
+        var elems = document.querySelectorAll('.datepicker');
+        var options = {format: 'dd/mm/yyyy', defaultDate: new Date(due_date), setDefaultDate: true};
+        var instances = M.Datepicker.init(elems, options);
+        instance = M.Datepicker.getInstance(elems[0], options);
+        instance.setDate(due_date);
+        instance._finishSelection();
+    });
 </script>
 
 {% endblock %}
